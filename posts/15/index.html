@@ -1,0 +1,216 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Running A Bitcoin Full Node - Aditya Bose</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Running A Bitcoin Full Node" />
+<meta property="og:description" content="The previous post was a brief introduction on Bitcoin and full nodes. This post will cover how to set up a full node on your system.
+Running your own Bitcoin full node means that you configured a computer with the Bitcoin Core software and have a full copy of the entire Blockchain database on it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adybose.github.io/posts/15/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-11-14T19:11:56&#43;05:30" />
+<meta property="article:modified_time" content="2020-11-14T19:11:56&#43;05:30" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Running A Bitcoin Full Node"/>
+<meta name="twitter:description" content="The previous post was a brief introduction on Bitcoin and full nodes. This post will cover how to set up a full node on your system.
+Running your own Bitcoin full node means that you configured a computer with the Bitcoin Core software and have a full copy of the entire Blockchain database on it."/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://adybose.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://adybose.github.io/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://adybose.github.io/">Aditya Bose</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://www.facebook.com/" title="Facebook">
+               <i class="fab fa-facebook fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/adybose" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://gitlab.com/" title="GitLab">
+               <i class="fab fa-gitlab fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/aditya_bose" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Software developer and part-time memelord</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span>Home</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Running A Bitcoin Full Node</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-11-14T19:11:56&#43;05:30">Nov 14, 2020</time>
+        </li>
+        
+        
+
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>The previous post was a brief introduction on Bitcoin and full nodes. This post will cover how to set up a full node on your system.</p>
+<p>Running your own Bitcoin full node means that you configured a computer with the Bitcoin Core software and have a full copy of the entire Blockchain database on it.</p>
+<h2 id="requirements">Requirements</h2>
+<p>Bitcoin Core requires a one-time download of about 350GB of data plus a further 5-10GB per month. To run a full node, you will need a system that meets the following requirements:</p>
+<ul>
+<li>A desktop or a laptop computer running Windows, MacOS, or Linux</li>
+<li>At least 2 GB of RAM</li>
+<li>At least 500 GB of free disk space, with a minimum read/write speed of 100 MB/s</li>
+<li>An unmetered broadband/fiber internet connection with high upload speed and limit</li>
+</ul>
+<p>In this post, we shall look into the process of installing a full node on a Linux machine from a pre-built binary version downloaded from the Bitcoin Core download page <a href="https://bitcoincore.org/en/download/">here</a> or <a href="https://bitcoin.org/en/download">here</a>.</p>
+<p>At the time of writing this post, the latest version is <code>0.20.1</code>. Click the <code>Linux (tgz)</code> link to download the file.</p>
+<p>It is highly recommended to verify your download by verifying that its checksum is in <a href="https://bitcoincore.org/bin/bitcoin-core-0.20.1/SHA256SUMS.asc">this</a> list of cryptographic checksums. Download this checksums file in the same directory as the downloaded bitcoin binary tgz file, and from this directory, run the following command in the terminal:</p>
+<pre><code>sha256sum --ignore-missing --check SHA256SUMS.asc
+</code></pre><p>where <code>SHA256SUMS.asc</code> is the downloaded checksums file.</p>
+<p>You should see a line that shows <code>OK</code> against the name of the downloaded file like:</p>
+<pre><code>bitcoin-0.20.1-x86_64-linux-gnu.tar.gz: OK
+</code></pre><p>Next, obtain a copy of the <strong><em>release signing key</em></strong> by running the following command:</p>
+<pre><code>gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 01EA5486DE18A882D4C2684590C8019E36C2E964
+</code></pre><p>The output of the command above should say that one key was imported like:</p>
+<pre><code>gpg --verify SHA256SUMS.asc
+</code></pre><p>Now, verify that the checksums file is PGP signed by the release signing key:</p>
+<pre><code>gpg --verify SHA256SUMS.asc
+</code></pre><p>The output from the verify command should contain a line that starts with:</p>
+<pre><code>gpg: Good signature
+</code></pre><p>and a complete line:</p>
+<pre><code>Primary key fingerprint: 01EA 5486 DE18 A882 D4C2  6845 90C8 019E 36C2 E964
+</code></pre><p>Now, if other people you trust can confirm that the key fingerprint printed above belongs to the Bitcoin Core Project&rsquo;s release signing key, you have essentially verified your download. Now, you can proceed with installing Bitcoin on your system.</p>
+<p>First, extract the downloaded Bitcoin GZipped Tar File with the command:</p>
+<pre><code>tar xzf bitcoin-0.20.1-x86_64-linux-gnu.tar.gz
+</code></pre><p>This will create the directory <strong>bitcoin-0.20.1/</strong> within your current working directory. Then, install the contents of its <strong>bin/</strong> subdirectory into the <strong>/usr/local/bin</strong> directory of your system using the the <code>install</code> command:</p>
+<pre><code>sudo install -m 0755 -o root -g root -t /usr/local/bin bitcoin-0.20.1/bin/*
+</code></pre><p>Navigate to the <strong>/usr/local/bin/</strong> directory and run the <code>ls</code> command. You should see the <code>bitcoin-cli</code>, <code>bitcoind</code>, and <code>bitcoin-qt</code> executables.</p>
+<p>To run Bitcoin Core GUI, simply run <code>bitcoin-qt</code> from the terminal (make sure that the /usr/local/bin/ directory is in your PATH, which is usually true). If all the required libraries are installed, Bitcoin Core GUI will start and you will see a welcome screen like below:</p>
+<p><img src="https://raw.githubusercontent.com/adbose/assets/master/en-bitcoin-qt-welcome.png" alt="Bitcoin Core GUI"></p>
+<p>You can specify the directory where Bitcoin Core will download and store a copy of the Bitcoin blockchain by choosing the default data directory, or by creating a custom data directory. This is also where the wallet will be stored.</p>
+<p>Once done, Bitcoin Core GUI will begin downloading the blockchain, a process which is known as Initial Block Download (IBD). This step will take at least several days for a first-time download, during which Bitcoin Core will use a significant part of your connection bandwidth. You can pause the IBD anytime by closing the Bitcoin Core application, which will resume from the last download point the next time you start it.</p>
+<p>After download is complete, you may use Bitcoin Core as your wallet or you can just let it run to help support the Bitcoin network. You now have a full node running at port 8333.</p>
+<p>For a more exhaustive read, check out the official docs for Running a full node <a href="https://bitcoin.org/en/full-node">here</a>.</p>
+<p>In the next part of this series, we will look at how you can run a Lightning Node along with your full node.</p>
+<p>Stay tuned!</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://adybose.github.io/posts/14/"><i class="fa fa-chevron-circle-left"></i> An Introduction To Bitcoin</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://adybose.github.io/posts/16/">The Bulls Are Coming <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2020 - Aditya Bose |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://adybose.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://adybose.github.io/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

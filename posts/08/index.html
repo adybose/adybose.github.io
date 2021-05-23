@@ -1,0 +1,260 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>An Introduction To Node.js - Aditya Bose</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="An Introduction To Node.js" />
+<meta property="og:description" content="Node.js is an open-source and cross-platform JavaScript runtime environment developed by Ryan Dahl in 2009. Built on Google Chrome&rsquo;s V8 JavaScript engine, node.js allows developers to use JavaScript in the backend to create server-side applications." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adybose.github.io/posts/08/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-07-17T11:39:54&#43;05:30" />
+<meta property="article:modified_time" content="2020-07-17T11:39:54&#43;05:30" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An Introduction To Node.js"/>
+<meta name="twitter:description" content="Node.js is an open-source and cross-platform JavaScript runtime environment developed by Ryan Dahl in 2009. Built on Google Chrome&rsquo;s V8 JavaScript engine, node.js allows developers to use JavaScript in the backend to create server-side applications."/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://adybose.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://adybose.github.io/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://adybose.github.io/">Aditya Bose</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://www.facebook.com/" title="Facebook">
+               <i class="fab fa-facebook fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/adybose" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://gitlab.com/" title="GitLab">
+               <i class="fab fa-gitlab fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/aditya_bose" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Software developer and part-time memelord</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span>Home</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>An Introduction To Node.js</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-07-17T11:39:54&#43;05:30">Jul 17, 2020</time>
+        </li>
+        
+        
+
+        
+
+        <li>5 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>Node.js is an open-source and cross-platform JavaScript runtime environment developed by Ryan Dahl in 2009. Built on Google Chrome&rsquo;s V8 JavaScript engine, node.js allows developers to use JavaScript in the backend to create server-side applications.</p>
+<p>Node.js uses a light-weight single-threaded event event loop architecture which runs applications in an asynchronous, event-driven, non-blocking I/O model. This makes it perfect for developing highly scalable <em>data-intensive</em> real-time applications capable of handling multiple concurrent clients.
+However, because of its single-threaded architecture, node.js is not suitable for CPU-intensive applications.</p>
+<h2 id="installing-nodejs">Installing Node.js</h2>
+<p>In this post, we will focus on installing Node.js on a system running Ubuntu.</p>
+<p>Node.js is available in the Ubuntu repository and we can easily install it using the <code>apt</code> package manager.</p>
+<p>First, refresh your local package index by running:</p>
+<pre><code>$ sudo apt update
+</code></pre><p>Then, install Node.js:</p>
+<pre><code>$ sudo apt install nodejs
+</code></pre><p>Check that the installation was successful by running <code>node</code> or <code>nodejs</code> in the terminal. It should start up a new node shell in a new line like this:</p>
+<pre><code>&gt;
+</code></pre><p>You can start coding right from the shell. Example:</p>
+<pre><code>&gt; console.log(&quot;hello node!&quot;)
+</code></pre><p>Output:</p>
+<pre><code>hello node!
+</code></pre><p>You can also check the version by running <code>node -v</code> or <code>nodejs -v</code>.</p>
+<p>It is recommended to also install Node Package Manager(NPM) with Node.js. NPM is an open source library of Node.js packages.</p>
+<p>To install NPM, run the following command:</p>
+<pre><code>$ sudo apt install npm
+</code></pre><p>Again, check that the installation was successful by running <code>npm -v</code> or <code>npm --version</code>.</p>
+<p>Once installed, you can use NPM to installed Node.js packages like this:</p>
+<pre><code>$ npm install express
+</code></pre><p>You can uninstall a node package using the npm uninstall command. Example:</p>
+<pre><code>$ npm uninstall express
+</code></pre><p>To install both Node.js and NPM, for a specific version of <em>node</em>, we can use a Node.js PPA (personal packaging archive) maintained by NodeSource.</p>
+<p>We can use <code>curl</code> to add the particular Node.js PPA to the system like so:</p>
+<pre><code>$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+</code></pre><p>If <code>curl</code> is not installed on your system, first install it using:</p>
+<pre><code>$ sudo apt install curl
+</code></pre><p>Now, you can install the Node.js package using the following command:</p>
+<pre><code>$ sudo apt install nodejs
+</code></pre><p>The nodejs package contains both the node and npm binaries. Verify that node and npm are installed using the commands <code>node -v</code> and <code>npm -v</code>.</p>
+<p>Another very important way to install a specific version of node.js, is using the Node Version Manager (NVM).</p>
+<p>Visit the NVM GitHub repository, and from the <a href="https://github.com/nvm-sh/nvm#installing-and-updating"> section</a> page and copy either the <code>curl</code> or <code>wget</code> command to download and install the nvm script:</p>
+<pre><code>$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+</code></pre><p>or</p>
+<pre><code>$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+</code></pre><p>(Note: Do not run these scripts with <code>sudo</code> as it will enable nvm for the root user.)</p>
+<p>Running the scripts will clone the project’s repository from Github to the <code>~/.nvm/</code> directory. You will have to close and reopen your terminal to start using nvm.</p>
+<p>To check that nvm is installed, type <code>nvm --version</code>. If you get a version number back like <code>0.36.0</code>, then you know nvm was successfully installed.</p>
+<p>Now, you can install a specific version of Node.js, say, <code>14.5.0</code> by simply running:</p>
+<pre><code>$ nvm install 14.5.0
+</code></pre><p>To install the latest LTS (long term support) version, use the command:</p>
+<pre><code>$ nvm install --lts
+</code></pre><p>You can list the installed Node.js versions with the command <code>nvm list</code> or <code>nvm ls</code>.</p>
+<p>If you want to change the currently active version, run <code>nvm use</code> along with the version you want to switch to. Example:</p>
+<pre><code>$ nvm use 12.16.3
+</code></pre><p>To change the default Node.js version, run the following command:</p>
+<pre><code>$ nvm alias default 14.5.0
+</code></pre><p>That&rsquo;s it. Now you have all that you need to start using Node.js to make backend applications.</p>
+<h2 id="creating-a-basic-http-server">Creating a basic HTTP server</h2>
+<p>Let&rsquo;s create a basic server in Node.js. Create a file with the name <em>server.js</em> and add the following code in it:</p>
+<pre><code>const http = require('http');
+
+const hostname = &quot;127.0.0.1&quot;;
+const port = 3000;
+
+http.createServer(function(req, res) {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello Node!\n');
+}).listen(port, hostname, ()=&gt;{
+    console.log(`Server is running at http://${hostname}:${port}/`);
+});
+</code></pre><p>Save the file, and from the terminal in the directory containing the file, run:</p>
+<pre><code>$ node server.js
+</code></pre><p>You should see the output below:</p>
+<pre><code>Server is running at http://127.0.0.1:3000/
+</code></pre><p>If we open the address in the browser, we should see the <code>Hello Node!</code> message.</p>
+<p>Now, let&rsquo;s create the same basic web server, but using Express.</p>
+<h2 id="basic-express-server-in-nodejs">Basic Express Server in Node.js</h2>
+<p>Express is a web application framework for Node.js that allows you to spin up robust APIs and web servers in a much easier and cleaner way.</p>
+<p>Simply install it via npm as you would with any other package.</p>
+<pre><code>$ npm install express --save
+</code></pre><p>With <code>express</code> installed, create a file with the name <em>server.js</em> and add the following code in it:</p>
+<pre><code>const express = require('express');
+const app = express();
+
+app.get('/', (req, res) =&gt; {
+    res.send('Hello Express!');
+});
+
+app.listen(3000, () =&gt; console.log('Server is running at port 3000'));
+</code></pre><p>If we open the address in the browser, this time we should see the message <code>Hello Express!</code>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That&rsquo;s all I have for now. In this post, we covered quite a few concepts about Node.js, starting from installation using various methods, installing and removing packages, and usage in a sample web server application.</p>
+<p>You can read more about Node.js from their official docs <a href="https://nodejs.org/en/docs/">here</a>.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://adybose.github.io/posts/07/"><i class="fa fa-chevron-circle-left"></i> Reset Forgotten Login Keyring In Ubuntu</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://adybose.github.io/posts/09/">Virtual Environments In Python <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2020 - Aditya Bose |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://adybose.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://adybose.github.io/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

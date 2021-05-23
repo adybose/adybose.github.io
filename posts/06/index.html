@@ -1,0 +1,231 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Blogging With Hugo - Aditya Bose</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Blogging With Hugo" />
+<meta property="og:description" content="This blog is hosted for free on Github Pages. But it is built using another service called Hugo. If you look at the site footer, you should find a link to their project website." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adybose.github.io/posts/06/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-19T11:39:54&#43;05:30" />
+<meta property="article:modified_time" content="2020-06-19T11:39:54&#43;05:30" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Blogging With Hugo"/>
+<meta name="twitter:description" content="This blog is hosted for free on Github Pages. But it is built using another service called Hugo. If you look at the site footer, you should find a link to their project website."/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://adybose.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://adybose.github.io/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://adybose.github.io/">Aditya Bose</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://www.facebook.com/" title="Facebook">
+               <i class="fab fa-facebook fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/adybose" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://gitlab.com/" title="GitLab">
+               <i class="fab fa-gitlab fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/aditya_bose" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Software developer and part-time memelord</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span>Home</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Blogging With Hugo</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-19T11:39:54&#43;05:30">Jun 19, 2020</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="https://adybose.github.io/tags/hugo">#hugo</a>
+                
+            </em>
+        </li>
+        
+
+        <li>5 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>This blog is hosted for free on <a href="https://pages.github.com/">Github Pages</a>. But it is built using another service called Hugo. If you look at the site footer, you should find a link to their project website.</p>
+<p>In their website, they say they are the world&rsquo;s fastest framework for building websites. It is a static site generator written in Go with extremely fast build times (~1 ms per page). Content is written in markdown with front matter. Hugo then takes the source directory with content and templates and renders them into a full html website.</p>
+<p>Below is a quick start introduction to Hugo to get your own blog up and running in less than 30 minutes.</p>
+<p>The first thing that you need to do is install Hugo on your machine.</p>
+<p>If you are on a Linux or Mac, you can use <a href="https://brew.sh/">Brew</a> to install Hugo. For more options, see the official install docs <a href="https://gohugo.io/getting-started/installing">here</a>. It&rsquo;s also recommended to have <a href="../05">Git</a> installed as well because it will make content management so much easier just like software version control.</p>
+<p>To create a new site, simple run the command below:</p>
+<pre><code>$ hugo new site mysite
+</code></pre><p>This will create a new Hugo site in a folder named <em>mysite</em>. Navigate into the directory, and initialise a git repository inside it.</p>
+<pre><code>$ cd mysite
+$ git init
+</code></pre><p>Now, you can add a theme to your site. I chose the <em>Kiera</em> theme for my blog. You can choose any theme that suits your purpose from their collection of hundreds of themes <a href="https://themes.gohugo.io/">here</a>. It&rsquo;s recommended to download the theme into your site by using git submodule like below:</p>
+<pre><code>$ git submodule add https://github.com/funkydan2/hugo-kiera.git themes/hugo-kiera
+</code></pre><p>A new <em>.gitmodules</em> file will be created containing the local path and remote URL of the submodule.</p>
+<p>Then, add the theme to the site configuration:</p>
+<pre><code>$ echo 'theme = &quot;ananke&quot;' &gt;&gt; config.toml
+</code></pre><p>Now you can start creating content by using the hugo new command from the site root like so:</p>
+<pre><code>$ hugo new posts/my-first-post.md
+</code></pre><p>This will create a post by the name <em>my-first-post</em> in a <em>posts</em> sub-directory inside the <em>content</em> directory of the site.</p>
+<p>Open the file in a text editor of your choice and start writing. Each new content file starts with some extra information about the post called front matter like this:</p>
+<pre><code>+++
+title = &quot;My First Post&quot;
+date: 2019-03-26T08:47:11+01:00
+draft: true
+tags = []
+categories = []
++++
+</code></pre><p>You can start writing directly the contents below the front matter in markdown format as usual.</p>
+<p>Once written, set the value of <em>drafts</em> in your file&rsquo;s front matter to <code>false</code>, and launch a development server using the command</p>
+<pre><code>$ hugo server
+</code></pre><p>By default, this command will not deploy the files which have <em>drafts</em> as <code>true</code>. (<a href="https://gohugo.io/getting-started/usage/#draft-future-and-expired-content">Read More</a>)</p>
+<p>To deploy draft files, use the command:</p>
+<pre><code>$ hugo server -D
+</code></pre><p>Once, you are satisfied with your changes, stop the server, and build your site by simply using the command:</p>
+<pre><code>$ hugo
+</code></pre><p>To build the drafts too, use the command:</p>
+<pre><code>$ hugo -D
+</code></pre><p>Output will be in  the <strong>/public/</strong> directory by default. You can change it by setting <code>publishDir</code> to a directory name of your choice in the <em>config</em> file. You may then deploy your site by copying the <strong>public/</strong> directory to your production web server.</p>
+<p>Now, to deploy this site using Github pages, simply create a repository of the name <code>username.github.io</code> where <em>username</em> is your Github account ID. It&rsquo;s necessary to create the repo of that name because Github gives you a free website using your uniquie ID on the <strong>github.io</strong> domain.</p>
+<p>Clone the repository on your computer and add the contents of your site&rsquo;s public directory into this new repo. Finally, commit and push. Your site should be live in a few minutes on your unique <em>github.io</em> domain.</p>
+<p>Before committing and pushing your <strong>mysite</strong> repo to Github, first delete your public directory and add your <em>username.github.io</em> repo as a submodule with the directory name <strong>public</strong> like so:</p>
+<pre><code>$ rm -r public/
+git submodule add &lt;Remote location of your username.github.io repo&gt; public/
+</code></pre><p>It may happen sometimes, that a git directory for &lsquo;public&rsquo; is found locally with the above remote. If you want to reuse this local git directory instead of cloning again from the remote,
+use the &lsquo;&ndash;force&rsquo; option.</p>
+<p>Now, every time you add new content to the site and build it, your <em>public</em> directory will be updated. You can navigate inside the public directory and update your <strong>username.github.io</strong> remote repository.</p>
+<p>Once updated, navigate back to the <strong>mysite</strong> root, and update its remote repository without pushing the contents of your theme or public directory. Instead, only a refernce to specific commits are added.
+(<a href="https://github.com/adbose/personal-website">See example</a>)</p>
+<p>That&rsquo;s pretty much it. You should have a workflow set up to publish and maintain a static site or blog powered by Hugo. You can do some customizations based on your need. For example, I made a custom static home page for my blog instead of using the default list page view of the hugo site by adding a new post called <strong>_index.md</strong>, and display a list page for posts by adding a <strong>posts.md</strong> file in the <em>archetypes</em> directory.</p>
+<p>Check out the official <a href="https://gohugo.io/documentation/">docs</a> for more details.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://adybose.github.io/posts/05/"><i class="fa fa-chevron-circle-left"></i> An Introduction To Git</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://adybose.github.io/posts/07/">Reset Forgotten Login Keyring In Ubuntu <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2020 - Aditya Bose |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://adybose.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://adybose.github.io/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

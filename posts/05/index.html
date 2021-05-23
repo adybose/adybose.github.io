@@ -1,0 +1,246 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>An Introduction To Git - Aditya Bose</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="An Introduction To Git" />
+<meta property="og:description" content="A primer on source control using Git Git is an open source distributed version control system created by Linus Torvalds in 2005 for collaborating with other developers contributing to the Linux kernel." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adybose.github.io/posts/05/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-06T15:34:23&#43;05:30" />
+<meta property="article:modified_time" content="2020-06-06T15:34:23&#43;05:30" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An Introduction To Git"/>
+<meta name="twitter:description" content="A primer on source control using Git Git is an open source distributed version control system created by Linus Torvalds in 2005 for collaborating with other developers contributing to the Linux kernel."/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://adybose.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://adybose.github.io/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://adybose.github.io/">Aditya Bose</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://www.facebook.com/" title="Facebook">
+               <i class="fab fa-facebook fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/adybose" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://gitlab.com/" title="GitLab">
+               <i class="fab fa-gitlab fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/aditya_bose" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Software developer and part-time memelord</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span>Home</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>An Introduction To Git</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-06T15:34:23&#43;05:30">Jun 6, 2020</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="https://adybose.github.io/tags/git">#git</a>
+                
+                    , 
+                    <a href="https://adybose.github.io/tags/github">#github</a>
+                
+            </em>
+        </li>
+        
+
+        <li>5 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <h3 id="a-primer-on-source-control-using-git">A primer on source control using Git</h3>
+<p>Git is an open source distributed version control system created by Linus Torvalds in 2005 for collaborating with other developers contributing to the Linux kernel.</p>
+<p>Although Git is used primarily by programmers for tracking changes in source code during software development, it can be used for tracking changes in any set of files.</p>
+<p>This post is a quick introduction to Git, covering the most important commands needed to use Git in your projects.</p>
+<p>A Git project will have the following three main sections:</p>
+<ul>
+<li>Git directory</li>
+<li>Working directory (or working tree)</li>
+<li>Staging area</li>
+</ul>
+<p>The <strong>Git directory</strong> (located in YOUR-PROJECT-PATH/.git/) is where Git stores everything it needs to accurately track the project. This includes metadata and an object database which includes compressed versions of the project files.</p>
+<p>The <strong>working directory</strong> is where a user makes local changes to a project. The working directory pulls the project’s files from the Git directory’s object database and places them on the user’s local machine.</p>
+<p>The <strong>staging area</strong> is a file (also called the “index”, “stage”, or “cache”) that stores information about what will go into your next commit. Staging is therefore the process of adding or removing files to the staging area to be committed. A commit is when you tell Git to save these staged changes. Git takes a snapshot of the files as they are and permanently stores that snapshot in the Git directory.</p>
+<h3 id="getting-started">Getting Started</h3>
+<p>To use Git in your projects, you need to first install it (if not already installed) in your system by following the instructions <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.</p>
+<p>Verify if Git is installed by using the following command in the terminal:</p>
+<pre><code>$ git --version
+</code></pre><p>Next, configure your Git environment by setting certain configuration variable using <code>git config</code>.</p>
+<p>There are three levels where these configuration variables are stored:</p>
+<ul>
+<li>System: located in /etc/gitconfig, applies default settings to every user of the computer. To make changes to this file, use the &ndash;system option with the git config command.</li>
+<li>User: located in ~/.gitconfig or ~/.config/git/config, applies settings to a single user. To make changes to this file, use the &ndash;global option with the git config command.</li>
+<li>Project: located in YOUR-PROJECT-PATH/.git/config, applies settings to the project only. To make changes to this file, use the git config command.</li>
+</ul>
+<p>To see all your configuration settings, use the command:</p>
+<pre><code>$ git config --list
+</code></pre><h3 id="initialize-git-in-a-project">Initialize Git in a Project</h3>
+<p>Once Git is installed and configured on your computer, you need to initialize it in your project to start using it for version control.</p>
+<p>In the command line, use the <code>cd</code> command to navigate to the root level directory of your project, and run the command:</p>
+<pre><code>$ git init
+</code></pre><p>This installs a <strong>Git directory</strong> (<em>.git/</em> folder with all the files and objects Git needs to track your project.</p>
+<h3 id="adding-and-committing-your-work">Adding and Committing your work</h3>
+<p>Once initialized, Git will start tracking the changes you make within the working directory of your project. You can check the status of your <em>working tree</em> with the command <code>git status</code> which shows important details about your project like current branch, and all the changes, staged or unstaged for committing.
+To add the changes to the staging area, use the <code>git add</code> command followed by the files and directories to be added for commit.
+For example:</p>
+<pre><code>$ git add file1 file2 dir1/file3 dir2/
+</code></pre><p>Once addedd for staging, the changes can be committed with a commit message like below:</p>
+<pre><code>$ git commit -m &quot;Initial commit&quot;
+</code></pre><h3 id="branches">Branches</h3>
+<p>A branch is nothing but a pointer to the latest commit in the Git repository referenced by HEAD. So currently, you are in the <em>master</em> branch which is a pointer to the commit with the message “Initial commit”. Whenever you make a commit, HEAD is updated with the latest commit.</p>
+<p>To work on any new task/issue on a project, it is always advised to create a new branch to avoid breaking the committed state so far.</p>
+<p>Create and switch to a new branch using the <code>git checkout</code> command with the <code>-b</code> flag. For example:</p>
+<pre><code>$ git checkout -b mylocalbranch
+</code></pre><p>You can view all the branches in your repository with the <code>git branch</code> command, and switch between branches using the <code>git checkout</code> followed by the branch name.</p>
+<p>Once you&rsquo;re done with your changes, you can commit and merge them to the master branch:</p>
+<pre><code>git commit -m &quot;Commit changes to mylocalbranch&quot;
+git checkout master
+git merge mylocalbranch
+</code></pre><p>After this, you can safely delete that branch with the <code>git branch</code> command along with the <code>-D</code> flag like so:</p>
+<pre><code>$ git branch -D mylocalbranch
+</code></pre><p>You can run <code>git log</code> to see the commit history of your repository.</p>
+<h3 id="working-with-remotes">Working with Remotes</h3>
+<p>When working on a collaborative project, each collaborator works on a local copy of the project that sits on a remote repository, and periodically updates the remote with their local changes.</p>
+<p>For that, we use a hosted Git service, a popular one being <a href="https://github.com">Github</a>.</p>
+<p>You can start working on a local copy of an existing remote repository using the <code>git clone</code> command with the URL of the remote repository as argument or create a new remote repository and set it to track your local repository using the <code>git remote add</code> command with name you want to give to the remote (eg. <em>remote</em>) followed by the URL of the remote repository as argument.</p>
+<p>To incorporate the changes from the remote into your local repository, use the <code>git pull</code> command which is the same as a <code>git fetch</code> followed by a <code>git merge</code>.</p>
+<p>To update the remote with your saved or committed local changes, use the <code>git push</code> command.</p>
+<p>Below is a visualization of a basic Git workflow:</p>
+<p><img src="https://raw.githubusercontent.com/adbose/assets/master/git_overview.png" alt="Git Overview"></p>
+<p>That&rsquo;s pretty much all the fundamentals needed to get started with Git. For a list of some of the most commonly used Git commands, please refer to this <a href="https://gist.github.com/adbose/e24ba1754cce1a02e2cfd807d7a06e9c">Gist</a>. I shall try to post some updates in future posts covering some advanced workflows in Git like resolving merge conflicts, resetting or reverting changes, rebasing, working with submodules, etc.</p>
+<p>See you in another one!</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://adybose.github.io/posts/04/"><i class="fa fa-chevron-circle-left"></i> Covid-19 Stats Tweeter</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://adybose.github.io/posts/06/">Blogging With Hugo <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2020 - Aditya Bose |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://adybose.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://adybose.github.io/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

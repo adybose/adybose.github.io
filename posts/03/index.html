@@ -1,0 +1,225 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Twilio Hackathon 2020 - Aditya Bose</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Twilio Hackathon 2020" />
+<meta property="og:description" content="Over the past month, I have been hacking around with the Twilio API for WhatsApp to create some simple bots by following their documentation and tutorials.
+Twilio was hosting a hackathon throughout April on Dev to solve challenges in communication, and one of the themes was the ongoing Coronavirus pandemic." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adybose.github.io/posts/03/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-05-09T20:47:09&#43;05:30" />
+<meta property="article:modified_time" content="2020-05-09T20:47:09&#43;05:30" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Twilio Hackathon 2020"/>
+<meta name="twitter:description" content="Over the past month, I have been hacking around with the Twilio API for WhatsApp to create some simple bots by following their documentation and tutorials.
+Twilio was hosting a hackathon throughout April on Dev to solve challenges in communication, and one of the themes was the ongoing Coronavirus pandemic."/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://adybose.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://adybose.github.io/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://adybose.github.io/">Aditya Bose</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://www.facebook.com/" title="Facebook">
+               <i class="fab fa-facebook fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/adybose" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://gitlab.com/" title="GitLab">
+               <i class="fab fa-gitlab fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/aditya_bose" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Software developer and part-time memelord</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span>Home</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Twilio Hackathon 2020</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-05-09T20:47:09&#43;05:30">May 9, 2020</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="https://adybose.github.io/tags/covid-19">#covid-19</a>
+                
+                    , 
+                    <a href="https://adybose.github.io/tags/whatsapp">#whatsapp</a>
+                
+                    , 
+                    <a href="https://adybose.github.io/tags/twilio">#twilio</a>
+                
+                    , 
+                    <a href="https://adybose.github.io/tags/python">#python</a>
+                
+                    , 
+                    <a href="https://adybose.github.io/tags/twiliohackathon">#twiliohackathon</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>Over the past month, I have been hacking around with the Twilio API for WhatsApp to create some simple bots by following their documentation and tutorials.</p>
+<p>Twilio was hosting a hackathon throughout April on <a href="https://dev.to/devteam/announcing-the-twilio-hackathon-on-dev-2lh8">Dev</a> to solve challenges in communication, and one of the themes was the ongoing Coronavirus pandemic.
+This seemed like a good opportunity to test out my ideas for a Covid Tracker as a WhatsApp bot.</p>
+<p>We have already seen how we can import twilio to a python script to use it&rsquo;s APIs to send messages to users.</p>
+<p>In this project, we would create a Flask app and use Twilio&rsquo;s <code>twiml</code> APIs to send meaningful information based on user queries.</p>
+<p>Our original intent from the <a href="../01">first</a> post was to be able to get notified on the latest Covid-19 case stats. The easy solution that I wanted to implement was a Twitter bot that tweets every time it receives updated stats from it&rsquo;s trusted data sources. Since I have yet not recevied Developer access for Twitter, I deceided to implement an information system related to Covid-19 over WhatsApp. It is not free to send self initiated messages, and to be able to send such messages, one needs to apply for a Business Account with WhatsApp which again goes through an approval process which again takes several weeks. We are gonna worry about all that later, and start building and testing right away using the Twilio Sandbox for WhatsApp.</p>
+<p>My main objective for the Hackathon was to show daily and total Covid-19 cases in India. Using the location services of WhatsApp, we could also get nearby case statistics andn essential services information for users to have an idea of the neighbourhood they are in.</p>
+<p>The project is developed using Python3.8 with the Flask web microframework, and uses Twilio&rsquo;s Programmable SMS API for WhatsApp. Let us start by first installing <code>flask</code> and <code>twilio</code> in a new virtual environment, after which we can start developing by importing these dependencies in our code.</p>
+<p>The next step is to source the data. For country level and total global Covid-19 stats, Worldometers is probably the most popular site on the Internet. They have paid licences starting $35/month to access their data APIs, but I didn&rsquo;t wish to pay any money to get started with the project which is mainly an experimental one for educational purposes. So, using an open source MIT licence for fair and non-commercial use, I assumed I could safely scrape the publicly available data from their site and get all the country level stats at a given moment.</p>
+<p>Given below is a script that we could write to fetch the current stats from Worldometers on the global cases, deaths and recoveries:</p>
+<pre><code>response = requests.get('https://www.worldometers.info/coronavirus/')
+doc = html.fromstring(response.content)
+country_names = doc.xpath(
+    '//table[@id=&quot;main_table_countries_today&quot;]/tbody/tr/td[2]/a[contains(@href, &quot;country/&quot;)]/text()')
+print(country_names)
+</code></pre><p>The result will be a list of names of countries as they are written in the Worldometers site in the main stats table.
+To scrape the website more reliably, I decided to use the <code>lxml</code> Python package to parse the site XML using <code>xpath</code>.</p>
+<p>Luckily, getting India specific data is easier. The site <a href="covid19india.org">covid19india.org</a> provides a free and open JSON API which we can access using simple HTTP GET requests to get state level, district level, patient level, and overall stats. The data is crowdsourced and maintained by the volunteers involved with the project. Check out the API information page <a href="https://api.covid19india.org/">here</a>.</p>
+<p>We use the <code>requests</code> Python package and Python&rsquo;s inbuild <code>json</code> module to send a request to an API and get response in a Python data type which will be the JSON equivalent of the data like a <em>dict</em>.</p>
+<p>A typical request and response code would look something like this:</p>
+<pre><code>response = requests.get(api_url)
+return response.json()
+</code></pre><p>When users send their location in their message, we obtain the location coordinates from the <code>request.values</code> object of the request payload that WhatsApp receives. To encode and decode locations and places, we can use a third party geolocation service like Google Maps API. For the purposes of the hackathon, I used the free and public <a href="https://nominatim.org/">Nominatim Open Street Map API</a> from the <code>geopy</code> Python package.
+Using the location data, we were able to provide case stats by district, zone information, as well as essential services available nearby.</p>
+<h3 id="using-the-bot">Using The Bot</h3>
+<p>The app is hosted for free on <a href="https://heroku.com">Heroku</a>. You can start interacting with the bot right now by sending the message <code>join came-told</code> to Twilio&rsquo;s shared WhatsApp number.</p>
+<p>You can find the code for the project on <a href="https://github.com/adbose/covid-india-whatsapp-tracker">Github</a> along with the instructions to clone and run it locally with the Twilio Sandbox for WhatsApp using <code>ngrok</code> to expose the local instance of your app to Twilio&rsquo;s webhook endpoint URL.
+You can also read my submission post on <a href="https://dev.to/adbose/twilio-hackathon-submission-a-location-based-covid-19-whatsapp-tracker-for-india-1oi3">dev.to</a>.</p>
+<p>Stay tuned for more updates on this project!</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://adybose.github.io/posts/02/"><i class="fa fa-chevron-circle-left"></i> WhatsApp</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://adybose.github.io/posts/04/">Covid-19 Stats Tweeter <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2020 - Aditya Bose |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://adybose.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://adybose.github.io/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+

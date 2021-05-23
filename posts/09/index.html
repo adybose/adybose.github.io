@@ -1,0 +1,238 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <title>Virtual Environments In Python - Aditya Bose</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="" /><meta property="og:title" content="Virtual Environments In Python" />
+<meta property="og:description" content="Often times, while developing applications in Python, one needs to install some external packages or dependencies.
+Normally, third party packages installed using easy_install or pip are typically placed in one of the directories pointed to by the site." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://adybose.github.io/posts/09/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-08-08T21:17:11&#43;05:30" />
+<meta property="article:modified_time" content="2020-08-08T21:17:11&#43;05:30" />
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Virtual Environments In Python"/>
+<meta name="twitter:description" content="Often times, while developing applications in Python, one needs to install some external packages or dependencies.
+Normally, third party packages installed using easy_install or pip are typically placed in one of the directories pointed to by the site."/>
+
+<meta name="generator" content="Hugo 0.83.1" />
+    
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://adybose.github.io/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://adybose.github.io/css/styles.css" /></head>
+
+<body>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="https://adybose.github.io/">Aditya Bose</a>
+            </h1>
+
+      <ul id="social-media">
+             <li>
+               <a href="https://www.facebook.com/" title="Facebook">
+               <i class="fab fa-facebook fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/adybose" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://gitlab.com/" title="GitLab">
+               <i class="fab fa-gitlab fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://twitter.com/aditya_bose" title="Twitter">
+               <i class="fab fa-twitter fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Software developer and part-time memelord</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/">
+                <i class="fa-li fa  fa-lg"></i><span>Home</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/posts/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="https://adybose.github.io/about/">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+    <main>
+
+
+
+
+<article>
+
+    <h1>Virtual Environments In Python</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-08-08T21:17:11&#43;05:30">Aug 8, 2020</time>
+        </li>
+        
+        
+
+        
+
+        <li>4 minute read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>Often times, while developing applications in Python, one needs to install some external packages or dependencies.</p>
+<p>Normally, third party packages installed using <strong><em>easy_install</em></strong> or <strong><em>pip</em></strong> are typically placed in one of the directories pointed to by the <code>site.getsitepackages()</code> function. For example:</p>
+<pre><code>&gt;&gt;&gt; import site
+&gt;&gt;&gt; site.getsitepackages()
+[
+  '/System/Library/Frameworks/Python.framework/Versions/3.5/Extras/lib/python',
+  '/Library/Python/3.5/site-packages'
+]
+</code></pre><p>By default, every project on your system will use these same directories to store and retrieve <strong><em>site packages</em></strong> (third party libraries). But this becomes a problem if different projects use different versions of the same dependency which Python can&rsquo;t differntiate between in the <em>site-packages/</em> directory&hellip;. breaking code.</p>
+<p>This is where virtual environments come into picture, which provide a way to separate different Python environments for different projects.</p>
+<h2 id="creating-a-virtual-environment">Creating a virtual environment</h2>
+<p>Creating a virtual environment creates a new path for the Python executable as well as a copy of the Python version containing a <em>site-packages</em> folder where each dependency is installed.
+Activating it sets up your shell to use the environment’s Python executable and its site-packages by default.</p>
+<p>Versions of Python 3.6 and above come with the <strong>venv</strong> module to create virtual environments. For example, running</p>
+<pre><code>$ python3 -m venv env
+</code></pre><p>creates a new virtual environment with the name <em>env</em> in the current working directory which would contain all the executable scripts along with the <em>site-packages</em> directory where external dependencies get installed.</p>
+<p>For Python2, we can create virtual environments using <strong>virtualenv</strong>. Before using it, virtualenv should first be installed. We can install using <em>pip</em> like:</p>
+<pre><code>$ pip install virtualenv
+</code></pre><p>after which we can create virtual environments like:</p>
+<pre><code>$ virtualenv env
+</code></pre><p>To activate the virtual environment run the <code>activate</code> script from the terminal. In *nix systems, from the directory containing the environment variable directory, run:</p>
+<pre><code>$ source env/bin/activate
+(env) $
+</code></pre><p>This would modify the shell prompt with a prefix like above, indicating the virtual environment is currently active. This means the python executable will only use the environment’s packages and settings, and all external Python packages would be installed in that site-packages directory of the virtual environment.</p>
+<p>Now, you can comfortable work on your own isolated Python environment without worrying about breaking code in other projects.</p>
+<p>To deactivate the virtual environment, simply run:</p>
+<pre><code>(env) $ deactivate
+$
+</code></pre><p>This would also remove the prefix indicating the virtual environment has been deactivated.</p>
+<h2 id="managing-virtual-environments-with-virtualenvwrapper">Managing virtual environments with <code>virtualenvwrapper</code></h2>
+<p>As the number of virtual environments in the system increases, it can become difficult to remember and manage them. This is where <strong>virtualenvwrapper</strong> comes in the picture. It&rsquo;s just some wrapper scripts around the main <em>virtualenv</em> tool which provides a few features like organizing all virtual environments in one location, commands to create, remove and switch between environments.</p>
+<p>To install using <em>pip</em>, run:</p>
+<pre><code>$ pip install virtualenv
+</code></pre><p>Once installed, activate its shell functions by running source on the installed <em>virtualenvwrapper.sh</em> script.</p>
+<p>For that, first find the location of <em>virtualenvwrapper.sh</em> by running:</p>
+<pre><code>$ which virtualenvwrapper.sh
+/usr/local/bin/virtualenvwrapper.sh
+</code></pre><p>which should return the path of the virtualenvwrapper.sh script like above.</p>
+<p>Using that path, add the following three lines to your shell’s startup file. If you’re using the Bash shell, you would place these lines in either the <em>~/.bashrc</em> file or the <em>~/.profile</em> file like so:</p>
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs   # Optional
+export PROJECT_HOME=$HOME/projects      # Optional
+source /usr/local/bin/virtualenvwrapper.sh
+</code></pre><p>and reload the startup file:</p>
+<pre><code>$ source ~/.bashrc
+</code></pre><p>There should now be a directory located at <em>$WORKON_HOME</em> that contains all of the virtualenvwrapper data/files.</p>
+<p>Now, to create a new virtual environment, simply run:</p>
+<pre><code>$ mkvirtualenv env
+(env) $
+</code></pre><p>This will create and activate a new environment in the directory located at <em>$WORKON_HOME</em>, where all virtualenvwrapper environments are stored.</p>
+<p>If you have many environments to choose from, you can list them all with the workon function:</p>
+<pre><code>$ workon
+env
+env1
+env2
+</code></pre><p>And activate a specific virtual environment like:</p>
+<pre><code>$ workon env2
+(env2) $
+</code></pre><h2 id="using-different-python-versions">Using different Python versions</h2>
+<p>Sometimes, we want to switch between different versions of Python itself. For that, we have <strong><em>pyenv</em></strong> which we can install in *nix systems with Homebrew like:</p>
+<pre><code>$ brew install pyenv
+</code></pre><p>or using pyenv-installer like:</p>
+<pre><code>$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+</code></pre><p>Once installed, we can use it to install specific version of Python, use them for global or local use. Using the pyenv local command, to set the Python version for a specific project or directory by storing the version number in a .local-version file.</p>
+
+
+</article>
+
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://adybose.github.io/posts/08/"><i class="fa fa-chevron-circle-left"></i> An Introduction To Node.js</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://adybose.github.io/posts/14/">An Introduction To Bitcoin <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6>Copyright © 2020 - Aditya Bose |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://adybose.github.io/index.xml">Subscribe </a></h6>
+    </footer>
+</div>
+<script src="https://adybose.github.io/js/scripts.js"></script>
+
+
+</body>
+
+</html>
+
